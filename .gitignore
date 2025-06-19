@@ -8,6 +8,8 @@ node_modules/
 dist/
 web-build/
 expo-env.d.ts
+app.config.js
+app.json
 
 # Native
 *.orig.*
@@ -36,3 +38,28 @@ yarn-error.*
 *.tsbuildinfo
 
 app-example
+
+# IDE files
+.idea/
+.vscode/
+.cursor/
+
+# Misc
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+/ios/Pods/
+/android/
+/web-build/
+.yarn/
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
