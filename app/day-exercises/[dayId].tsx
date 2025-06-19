@@ -278,10 +278,10 @@ export default function DayExercisesScreen() {
           numColumns={3} // 3x3 Grid
           contentContainerStyle={{ alignItems: 'center', paddingTop: 24 }}
           renderItem={({ item }) => (
-              <TouchableOpacity style={styles.modalBodyPartItem} onPress={() => handleSelectBodyPart(item)}>
-                <Image source={getIconForBodyPart(item)} style={styles.modalBodyPartIcon} />
+            <TouchableOpacity style={styles.modalBodyPartItem} onPress={() => handleSelectBodyPart(item)}>
+              <Image source={getIconForBodyPart(item)} style={styles.modalBodyPartIcon} />
                 <Text style={styles.modalBodyPartText}>{capitalize(item)}</Text>
-              </TouchableOpacity>
+            </TouchableOpacity>
             )
           }
         />
@@ -347,10 +347,10 @@ export default function DayExercisesScreen() {
             style={{ flex: 1 }}
         >
             <ScrollView contentContainerStyle={styles.modalContent}>
-                <TouchableOpacity onPress={() => setModalStep('selectExercise')} style={styles.modalBackButton}>
+                    <TouchableOpacity onPress={() => setModalStep('selectExercise')} style={styles.modalBackButton}>
                     <Ionicons name="arrow-back" size={22} color={Colors.primary} />
                     <Text style={styles.modalBackText}>Egzersiz Listesine Dön</Text>
-                </TouchableOpacity>
+                    </TouchableOpacity>
 
                 <View style={styles.selectedExerciseHeader}>
                 <Image source={getIconForBodyPart(selectedExerciseFromList?.body_part)} style={styles.selectedExerciseIcon} />
@@ -404,7 +404,7 @@ export default function DayExercisesScreen() {
                         </TouchableOpacity>
                     ))}
                 </View>
-                
+
 
                 <TouchableOpacity style={styles.saveButtonWide} onPress={handleAddExercise} disabled={savingExercise}>
                 {savingExercise ? (
@@ -413,8 +413,8 @@ export default function DayExercisesScreen() {
                     <Text style={styles.saveButtonText}>Egzersizi Ekle</Text>
                 )}
                 </TouchableOpacity>
-            </ScrollView>
-        </KeyboardAvoidingView>
+        </ScrollView>
+    </KeyboardAvoidingView>
     )
   }
 
@@ -423,7 +423,7 @@ export default function DayExercisesScreen() {
     return (
         <TouchableOpacity onPress={() => openEditModal(item)} activeOpacity={0.8}>
             <Animated.View style={[styles.exerciseCard, { backgroundColor: cardColor }]}>
-                <Image source={getIconForBodyPart(item.body_part)} style={styles.exerciseIcon} />
+            <Image source={getIconForBodyPart(item.body_part)} style={styles.exerciseIcon} />
                 <View style={styles.exerciseDetails}>
                 <Text style={styles.exerciseName}>{item.name}</Text>
                 <Text style={styles.exerciseBodyPart}>{item.body_part}</Text>
@@ -446,7 +446,7 @@ export default function DayExercisesScreen() {
                 {item.notes && (
                     <Text style={styles.notesText} numberOfLines={2}>Not: {item.notes}</Text>
                 )}
-                </View>
+            </View>
                 <TouchableOpacity style={styles.deleteButton} onPress={() => confirmDeleteExercise(item.id, item.name)}>
                     {isDeleting && editingExercise?.id === item.id ? (
                         <ActivityIndicator color={Colors.error} size="small" />
@@ -456,7 +456,7 @@ export default function DayExercisesScreen() {
                 </TouchableOpacity>
             </Animated.View>
         </TouchableOpacity>
-    );
+  );
   };
 
   const confirmDeleteExercise = (id: string, name: string) => {
@@ -513,10 +513,10 @@ export default function DayExercisesScreen() {
         if (error) throw error;
 
         if (data) {
-          setExercises(prev => 
+        setExercises(prev => 
             prev.map(ex => ex.id === data.id ? { ...ex, ...data } : ex)
-          );
-          closeEditModal();
+        );
+        closeEditModal();
           if(!isWeb) Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
         }
     } catch (e: any) {
@@ -546,7 +546,7 @@ export default function DayExercisesScreen() {
       <Text style={styles.emptySubtitle}>Aşağıdaki butona basarak bu güne ilk egzersizini ekle.</Text>
     </View>
   );
-
+  
   return (
     <View style={styles.container}>
         <Stack.Screen
@@ -606,15 +606,15 @@ export default function DayExercisesScreen() {
                 <TouchableOpacity style={styles.closeButton} onPress={closeAddExerciseModal}>
                   <Ionicons name="close" size={24} color={Colors.textMuted} />
                 </TouchableOpacity>
-              </Animated.View>
+            </Animated.View>
             </KeyboardAvoidingView>
       </Modal>
 
         {/* Düzenleme Modalı */}
-        <Modal
+      <Modal
             animationType="fade"
-            transparent={true}
-            visible={isEditModalVisible}
+        transparent={true}
+        visible={isEditModalVisible}
             onRequestClose={closeEditModal}>
             <BlurView intensity={20} style={styles.modalOverlay}>
                 <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"}>
@@ -623,11 +623,11 @@ export default function DayExercisesScreen() {
                         
                         <ScrollView>
                             <Text style={styles.modalSectionTitle}>Set, Tekrar & Kilo</Text>
-                            <View style={styles.inputRow}>
+                    <View style={styles.inputRow}>
                                 <TextInput style={styles.input} value={editSets} onChangeText={setEditSets} placeholder="Set" keyboardType="number-pad" />
                                 <TextInput style={styles.input} value={editReps} onChangeText={setEditReps} placeholder="Tekrar" keyboardType="number-pad" />
                                 <TextInput style={styles.input} value={editKilo} onChangeText={setEditKilo} placeholder="Kilo" keyboardType="decimal-pad" />
-                            </View>
+                    </View>
                             
                             <Text style={styles.modalSectionTitle}>Popüler Kısayollar</Text>
                             <View style={styles.shortcutContainer}>
@@ -641,7 +641,7 @@ export default function DayExercisesScreen() {
                                         }}
                                     >
                                         <Text style={[styles.shortcutText, editSets === sc.sets && editReps === sc.reps && styles.shortcutTextSelected]}>{sc.label}</Text>
-                                    </TouchableOpacity>
+                    </TouchableOpacity>
                                 ))}
                             </View>
                         </ScrollView>
@@ -652,12 +652,12 @@ export default function DayExercisesScreen() {
                             </TouchableOpacity>
                             <TouchableOpacity style={styles.saveButton} onPress={handleUpdateExercise} disabled={isSavingEdit}>
                                 {isSavingEdit ? <ActivityIndicator color="#FFF" /> : <Text style={styles.saveButtonText}>Kaydet</Text>}
-                            </TouchableOpacity>
+                    </TouchableOpacity>
                         </View>
-                    </View>
-                </KeyboardAvoidingView>
-            </BlurView>
-        </Modal>
+                </View>
+            </KeyboardAvoidingView>
+        </BlurView>
+      </Modal>
     </View>
   );
 }
