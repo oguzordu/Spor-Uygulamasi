@@ -22,7 +22,6 @@ import { BlurView } from 'expo-blur';
 import * as Haptics from 'expo-haptics';
 import { Ionicons } from '@expo/vector-icons';
 import { Exercise } from '@/types/workout';
-import { popularExercises } from '@/app/data/exercise-library';
 
 // Bu sayfaya özel, join ile gelen detaylı egzersiz tipi
 interface DetailedProgramExercise extends Exercise {
@@ -318,21 +317,15 @@ export default function DayExercisesScreen() {
           data={filteredExercises}
           key="exercise-list"
           keyExtractor={(item) => item.id.toString()}
-          renderItem={({ item, index }) => {
-            const bodyPartKey = item.body_part?.toLowerCase() || '';
-            const localExData = popularExercises[bodyPartKey]?.find((e: Exercise) => e.name === item.name);
-            const gifSource = localExData ? localExData.gif_url : null;
-            
-            return (
-              <Animated.View entering={FadeIn.delay(index * 30)}>
-                <TouchableOpacity style={styles.exerciseSelectItem} onPress={() => handleSelectExercise(item)}>
-                  <Image source={gifSource || require('../../assets/images/icons/chest.png')} style={styles.exerciseSelectGif} />
-                  <Text style={styles.exerciseSelectName}>{item.name}</Text>
-                  <Ionicons name="add-circle-outline" size={24} color={Colors.primary} />
-                </TouchableOpacity>
-              </Animated.View>
-            );
-          }}
+          renderItem={({ item, index }) => (
+            <Animated.View entering={FadeIn.delay(index * 30)}>
+              <TouchableOpacity style={styles.exerciseSelectItem} onPress={() => handleSelectExercise(item)}>
+                <Image source={{ uri: item.gif_url as string}} style={styles.exerciseSelectGif} />
+                <Text style={styles.exerciseSelectName}>{item.name}</Text>
+                <Ionicons name="add-circle-outline" size={24} color={Colors.primary} />
+              </TouchableOpacity>
+            </Animated.View>
+          )}
           ListEmptyComponent={
             <View style={styles.emptyListContainer}>
               <Text style={styles.emptyListText}>

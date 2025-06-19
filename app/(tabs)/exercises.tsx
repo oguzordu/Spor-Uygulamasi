@@ -31,15 +31,15 @@ const iconMap = {
 
 // 2. muscleGroups'da sadece ikon anahtarını (dosya adı) sakla
 const muscleGroups = [
-  { id: 'abs', name: 'Abs', iconKey: 'abs.png' },
-  { id: 'back', name: 'Back', iconKey: 'back.png' },
+  { id: 'chest', name: 'Göğüs', iconKey: 'chest.png' },
+  { id: 'back', name: 'Sırt', iconKey: 'back.png' },
+  { id: 'shoulders', name: 'Omuz', iconKey: 'shoulders.png' },
   { id: 'biceps', name: 'Biceps', iconKey: 'biceps.png' },
-  { id: 'calves', name: 'Calves', iconKey: 'calves.png' },
-  { id: 'chest', name: 'Chest', iconKey: 'chest.png' },
-  { id: 'forearms', name: 'Forearms', iconKey: 'forearms.png' },
-  { id: 'legs', name: 'Legs', iconKey: 'legs.png' },
-  { id: 'shoulders', name: 'Shoulders', iconKey: 'shoulders.png' },
-  { id: 'triceps', name: 'Triceps', iconKey: 'triceps.png' },
+  { id: 'triceps', name: 'Arka Kol', iconKey: 'triceps.png' },
+  { id: 'forearms', name: 'Ön Kol', iconKey: 'forearms.png' },
+  { id: 'legs', name: 'Bacak', iconKey: 'legs.png' },
+  { id: 'abs', name: 'Karın', iconKey: 'abs.png' },
+  { id: 'calves', name: 'Kalf', iconKey: 'calves.png' },
 ];
 
 // Placeholder tipi için tanım
@@ -80,7 +80,7 @@ export default function ExercisesScreen() {
 
   return (
     <ContainerComponent style={styles.container}>
-      <Text style={styles.title}>Muscle Groups</Text>
+      <Text style={styles.title}>Kas Grupları</Text>
       <FlatList
         data={displayMuscleGroups}
         renderItem={renderMuscleGroup}

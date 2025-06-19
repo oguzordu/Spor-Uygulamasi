@@ -133,9 +133,9 @@ export default function TabOneScreen() {
       setIsUserLoggedIn(userLoggedIn);
 
       if (userLoggedIn) {
-        if (session?.user?.email) {
-            const emailParts = session.user.email.split('@')[0];
-            setUserName(emailParts.charAt(0).toUpperCase() + emailParts.slice(1));
+      if (session?.user?.email) {
+        const emailParts = session.user.email.split('@')[0];
+        setUserName(emailParts.charAt(0).toUpperCase() + emailParts.slice(1));
         }
         // Data will be fetched by useFocusEffect, no need to call here
       } else {
@@ -633,7 +633,7 @@ export default function TabOneScreen() {
             }
           } 
         },
-      ]
+        ]
     );
   };
 
@@ -702,7 +702,7 @@ export default function TabOneScreen() {
                 >
                   <Text style={styles.createProgramButtonText}>Giriş Yap / Kayıt Ol</Text>
                 </TouchableOpacity>
-            </View>
+          </View>
         ) : (
           <>
         <Calendar

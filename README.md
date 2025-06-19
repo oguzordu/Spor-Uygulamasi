@@ -1,116 +1,81 @@
-# GymApp - Final Projesi
+# GymApp Projesi
 
-Bu depo, bir mobil fitness uygulaması olan GymApp'in final projesi için kaynak kodlarını ve belgelerini içerir.
-
-**Proje Linkleri**
-- **GitHub Deposu:** [Buraya GitHub depo linkinizi ekleyin]
-- **Tanıtım Videosu:** [Buraya YouTube/Vimeo video linkinizi ekleyin]
-
----
+Bu proje, kullanıcıların kendi antrenman programlarını oluşturmasına, mevcut programları takip etmesine ve geniş bir egzersiz kütüphanesinden faydalanmasına olanak tanıyan bir mobil fitness uygulamasıdır. React Native ve Expo ile geliştirilmiştir.
 
 ## Proje Açıklaması
 
-GymApp, kullanıcıların kendi antrenman programlarını oluşturmalarına, mevcut programları takvimlerine eklemelerine ve günlük egzersizlerini takip etmelerine olanak tanıyan bir mobil uygulamadır. Kullanıcılar, geniş bir egzersiz kütüphanesinden seçim yapabilir, programlarını kişiselleştirebilir ve ilerlemelerini kaydedebilirler.
+Uygulama, kullanıcıların kas gruplarına göre ayrılmış egzersizleri incelemesine, bu egzersizleri kullanarak kendi kişisel antrenman programlarını ve günlerini oluşturmasına olanak tanır. Oluşturulan programlar kaydedilir ve daha sonra tekrar kullanılabilir.
 
-### Bana Söylemek İstedikleriniz (Notlar)
+## Özellikler
 
-Bu kısım, projeyi geliştirirken karşılaşılan durumlar ve gelecekte yapılabilecek iyileştirmeler hakkında notlar içerir.
-
-- **Geliştirme Süreci:** Projenin geliştirilmesi sırasında, kullanıcı deneyimini (UX) sezgisel ve akıcı hale getirmeye odaklanıldı. Takvim entegrasyonu ve antrenman loglama gibi temel özellikler başarıyla tamamlandı.
-- **Yetiştirilemeyen Kısımlar:** Zaman kısıtlamaları nedeniyle, sosyal özellikler (arkadaş ekleme, program paylaşma) veya daha gelişmiş istatistik takibi (grafikler, ilerleme raporları) gibi bazı ikincil özellikler eklenemedi. Bu özellikler, projenin gelecekteki versiyonları için planlanmaktadır.
-- **Teknik Not:** Başlangıçta bazı GIF'lerin yüklenmesinde ve kullanıcı oturum yönetiminde karşılaşılan hatalar, kodun yeniden düzenlenmesi ve state yönetimi mantığının iyileştirilmesiyle tamamen giderilmiştir.
-
----
-
-## Temel Özellikler
-
-- **Kullanıcı Yönetimi:** E-posta/şifre ile kayıt olma ve giriş yapma.
-- **Egzersiz Kütüphanesi:** Kas gruplarına göre kategorize edilmiş, animasyonlu GIF'ler içeren zengin bir egzersiz listesi.
-- **Program Oluşturma:** Kullanıcılar, egzersiz kütüphanesinden hareketler seçerek kendi antrenman günlerini ve programlarını oluşturabilir.
-- **Takvim Entegrasyonu:** Oluşturulan veya seçilen programlar, bir başlangıç tarihi, süre ve dinlenme günleri belirtilerek takvime eklenebilir.
-- **Günlük Antrenman Takibi:** Kullanıcılar, takvim üzerinden herhangi bir antrenman gününe tıklayarak o günün egzersizlerini görebilir ve yaptıkları set, tekrar, kilo bilgilerini kaydedebilirler.
-- **Dinamik Arayüz:** Kullanıcının oturum durumuna göre arayüz dinamik olarak değişir.
-
----
+-   **Egzersiz Kütüphanesi:** Vücut bölgelerine göre kategorize edilmiş zengin egzersiz arşivi.
+-   **Program Oluşturma:** Kullanıcıların kendi antrenman programlarını ve günlük rutinlerini oluşturabilmesi.
+-   **Program Takibi:** Oluşturulan programların ve günlerin detaylarını görüntüleme.
+-   **Egzersiz Yönetimi:** Günlere yeni egzersiz ekleme, mevcut egzersizleri düzenleme ve silme.
+-   **Modern Arayüz:** Kullanıcı dostu ve modern bir tasarıma sahiptir.
 
 ## Kullanılan Teknolojiler
 
-- **Frontend:** React Native & Expo
-- **Backend & Veritabanı:** Supabase (PostgreSQL)
-- **Dil:** TypeScript
-- **Navigasyon:** Expo Router
-- **UI Bileşenleri:** React Native Calendars, React Native Community DateTimePicker
+-   **Frontend:** React Native, Expo
+-   **UI:** React Navigation, Expo Router
+-   **Backend & Veritabanı:** Supabase (PostgreSQL)
+-   **Dil:** TypeScript
 
----
+## Veritabanı Kurulumu
 
-## Kurulum ve Çalıştırma
+Bu proje, bulut tabanlı bir servis olan **Supabase** kullanmaktadır. Bu nedenle, projenin çalışması için yerel bir veritabanı kurulumuna ihtiyaç yoktur. Gerekli tüm veritabanı şeması ve konfigürasyon bilgileri Supabase projesi üzerinde yönetilmektedir.
 
-Projeyi yerel makinenizde çalıştırmak için aşağıdaki adımları izleyin.
+Giriş için gerekli `anon key` ve `URL` bilgileri `utils/supabase.ts` dosyası içerisinde mevcuttur. Projeyi klonladıktan sonra `npm install` komutu ile bağımlılıkları kurup `npx expo start` ile direkt olarak çalıştırabilirsiniz.
 
-### Gereksinimler
+## Hocama Notlar
 
-- Node.js (LTS versiyonu)
-- Expo CLI
-- Git
+-   Projenin temel iskeleti ve fonksiyonları tamamlanmıştır.
+-   Gelecek geliştirmeler olarak kullanıcı girişi (authentication) ve her set/tekrar sonrası ilerlemeyi kaydedecek bir takip sistemi eklenebilir.
+-   Tasarım konusunda daha detaylı iyileştirmeler yapılabilir.
 
-### Adımlar
+## Get started
 
-1.  **Depoyu Klonlayın:**
-    ```bash
-    git clone [SİZİN GİTHUB LİNKİNİZ]
-    cd GymApp
-    ```
+1. Install dependencies
 
-2.  **Bağımlılıkları Yükleyin:**
-    ```bash
-    npm install
-    ```
+   ```bash
+   npm install
+   ```
 
-3.  **Supabase Kurulumu:**
-    Bu proje, backend hizmeti olarak Supabase kullanmaktadır. Supabase, online bir PostgreSQL veritabanı ve kimlik doğrulama hizmetleri sunar.
+2. Start the app
 
-    -   [supabase.com](https://supabase.com) adresinden ücretsiz bir hesap oluşturun.
-    -   Yeni bir proje oluşturun.
-    -   Proje ayarlarına gidin (`Project Settings > API`). Orada bulunan **Project URL** ve **Project API Keys** (anon, public key) değerlerini alın.
-
-4.  **Ortam Değişkenlerini Ayarlayın:**
-    Projenin ana dizininde `.env` adında bir dosya oluşturun ve içine Supabase'den aldığınız bilgileri aşağıdaki gibi ekleyin:
-
-    ```
-    EXPO_PUBLIC_SUPABASE_URL=SİZİN_SUPABASE_URLİNİZ
-    EXPO_PUBLIC_SUPABASE_ANON_KEY=SİZİN_SUPABASE_ANON_KEYİNİZ
-    ```
-
-5.  **Veritabanı Şemasını Yükleyin:**
-    Supabase projenizin `SQL Editor` bölümüne gidin ve bu depoda bulunan `supabase/schema.sql` dosyasının içeriğini kopyalayıp çalıştırın. Bu, gerekli tüm tabloları ve ilişkileri oluşturacaktır.
-
-6.  **Uygulamayı Başlatın:**
-    ```bash
+   ```bash
     npx expo start
-    ```
-    Açılan Metro Bundler arayüzünden QR kodu okutarak uygulamayı Expo Go (Android/iOS) üzerinde çalıştırabilirsiniz.
+   ```
 
----
+In the output, you'll find options to open the app in a
 
-## APK Oluşturma
+- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
+- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
+- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
+- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
-Test edilmiş ve çalışır durumdaki APK'yı oluşturmak için aşağıdaki komutu kullanabilirsiniz. Bu komut, Expo'nun bulut tabanlı derleme hizmeti olan EAS Build'i kullanır.
+You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
-1.  **EAS CLI Kurulumu (Eğer kurulu değilse):**
-    ```bash
-    npm install -g eas-cli
-    ```
+## Get a fresh project
 
-2.  **Expo Hesabınıza Giriş Yapın:**
-    ```bash
-    eas login
-    ```
+When you're ready, run:
 
-3.  **Proje Yapılandırması:**
-    `eas.json` dosyasının projede mevcut olduğundan emin olun. Eğer yoksa, `eas build:configure` komutu ile oluşturulabilir.
+```bash
+npm run reset-project
+```
 
-4.  **APK Derlemesi:**
-    ```bash
-    eas build -p android --profile preview
-    ```
-    Derleme tamamlandığında, Expo size APK'yı indirebileceğiniz bir link sağlayacaktır.
+This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+
+## Learn more
+
+To learn more about developing your project with Expo, look at the following resources:
+
+- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
+- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+
+## Join the community
+
+Join our community of developers creating universal apps.
+
+- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
+- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
